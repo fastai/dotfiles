@@ -1,0 +1,11 @@
+--extra=+f
+--recurse=yes
+--exclude=.git
+--exclude=vendor/*
+--exclude=node_modules/*
+--exclude=db/*
+--exclude=log/*
+--python-kinds=-iv
+--exclude=build
+--exclude=dist
+
