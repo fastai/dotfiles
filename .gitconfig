@@ -1,3 +1,5 @@
 [user]
-	email = j@howard.fm
-	name = Jeremy Howard
+        email = j@howard.fm
+        name = Jeremy Howard
+[push]
+        default = simple
