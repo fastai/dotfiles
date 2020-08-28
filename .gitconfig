@@ -1,5 +1,28 @@
 [user]
-        email = info@fast.ai
+        email = j@fast.ai
         name = Jeremy Howard
+
 [push]
         default = simple
+
+[hub]
+	protocol = ssh
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[submodule]
+	recurse = true
+[diff]
+	submodule = log
+[status]
+	submodulesummary = 1
+[branch]
+	autosetuprebase = always

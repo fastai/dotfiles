@@ -22,6 +22,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 let g:SimpylFold_docstring_preview=1
 
+Plugin 'jph00/swift-apple'
+
 "Plugin 'janko-m/vim-test'
 "nmap <silent> <leader>t :TestNearest<CR>
 "nmap <silent> <leader>T :TestFile<CR>
