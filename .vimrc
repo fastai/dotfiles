@@ -1,27 +1,27 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+packadd! matchit
 set background=dark
-
-set nocompatible
 filetype off
 
-"set ttyfast
+set ttyfast
 set mouse=a
 set t_Co=256
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
 
 set foldcolumn=3
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle
 Plugin 'VundleVim/Vundle.vim'
-
-" The bundles you install will be listed here
 Plugin 'tmhedberg/SimpylFold'
 let g:SimpylFold_docstring_preview=1
 
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
 Plugin 'jph00/swift-apple'
 
 "Plugin 'janko-m/vim-test'
@@ -46,16 +46,10 @@ set backupdir=~/vimfiles/tmp,.
 set directory=~/vimfiles/tmp,.
 
 set pastetoggle=<F10>
-set expandtab
-
-au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=119 expandtab autoindent fileformat=unix
-au BufNewFile,BufRead *.cpp set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=119 expandtab autoindent fileformat=unix
-au BufNewFile,BufRead *.c set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=119 expandtab autoindent fileformat=unix
-au BufNewFile,BufRead *.h set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=119 expandtab autoindent fileformat=unix
-au BufNewFile,BufRead *.hpp set tabstop=2 softtabstop=2 shiftwidth=2 textwidth=119 expandtab autoindent fileformat=unix
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab autoindent textwidth=119 fileformat=unix
+au BufNewFile,BufRead *.py set shiftwidth=4
+"au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=119 expandtab autoindent fileformat=unix
 setlocal foldmethod=expr
-
-au BufNewFile,BufRead *.js,*.html,*.css: set tabstop=2 softtabstop=2 shiftwidth=2
 set list
 set listchars=tab:>-
 

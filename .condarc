@@ -1,8 +1,0 @@
-channels:
-  - defaults
-#  - conda-forge
-#channel_priority: strict
-
-anaconda_upload: true
-conda-build:
-  anaconda_token: fa-535da4ed-b73f-45ec-9661-28eb160a04f6
