@@ -1,3 +1,5 @@
+I suggest you create a fork of this, so you can modify it. In particular, be sure to update `.gitconfig` with your email/name.
+
 From https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 
 ```
