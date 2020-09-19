@@ -5,8 +5,8 @@
 [push]
         default = simple
 
-[hub]
-	protocol = ssh
+[credential]
+        helper = cache --timeout 30000
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

@@ -10,7 +10,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-alias config="/usr/bin/git --git-dir=~/.cfg/ --work-tree=~"
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 export EDITOR=/usr/bin/vim
 
 stty -ixon
