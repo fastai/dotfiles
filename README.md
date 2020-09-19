@@ -1,14 +1,7 @@
-I suggest you create a fork of this, so you can modify it. In particular, be sure to update `.gitconfig` with your email/name.
+I suggest you create a fork of this, so you can modify it.
 
-From https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+The approach used here is from https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 
-```
-echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> ~/.bashrc
-source ~/.bashrc
-echo ".cfg" >> .gitignore
-git clone --bare https://github.com/fastai/dotfiles.git .cfg/
-config checkout
-config config --local status.showUntrackedFiles no
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-echo "source ~/.bashrc.local" >> ~/.bashrc
-```
+To set this up on your machine, use this script: https://github.com/fastai/fastsetup/blob/master/dotfiles.sh
+
+In that script, change `https://github.com/fastai/dotfiles.git` to your fork, before you run it.
