@@ -53,9 +53,9 @@ set backupdir=~/vimfiles/tmp,.
 set directory=~/vimfiles/tmp,.
 
 set pastetoggle=<F10>
-set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab autoindent textwidth=119 fileformat=unix
+set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab autoindent fileformat=unix
 set fo-=t
-au BufNewFile,BufRead *.py set shiftwidth=4
+au BufNewFile,BufRead *.py set shiftwidth=4 textwidth=119
 setlocal foldmethod=expr
 set list
 set listchars=tab:>-
