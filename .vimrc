@@ -54,11 +54,13 @@ set directory=~/vimfiles/tmp,.
 
 set pastetoggle=<F10>
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab autoindent textwidth=119 fileformat=unix
+set fo-=t
 au BufNewFile,BufRead *.py set shiftwidth=4
-"au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=119 expandtab autoindent fileformat=unix
 setlocal foldmethod=expr
 set list
 set listchars=tab:>-
+set display+=lastline
+set incsearch
 
 let mapleader = "\\"
 map <Leader>ve :sp $HOME/.vimrc<CR>
@@ -82,4 +84,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <C-]> g<C-]>
+
+" Press Enter to highlight current word
+let g:highlighting = 0
+function! Highlighting()
+  if g:highlighting == 1 && @/ =~ '^\\<'.expand('<cword>').'\\>$'
+    let g:highlighting = 0
+    return ":silent nohlsearch\<CR>"
+  endif
+  let @/ = '\<'.expand('<cword>').'\>'
+  let g:highlighting = 1
+  return ":silent set hlsearch\<CR>"
+endfunction
+nnoremap <silent> <expr> <CR> Highlighting()
 
