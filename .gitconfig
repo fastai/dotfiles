@@ -6,7 +6,7 @@
         default = simple
 
 [credential]
-        helper = cache --timeout 30000
+	helper = cache --timeout=7200
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
