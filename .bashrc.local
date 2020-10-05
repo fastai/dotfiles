@@ -8,15 +8,16 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[0
 [ -f ~/.bash_secrets ] && . ~/.bash_secrets
 
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-export EDITOR=/usr/bin/vim
+export VISUAL=vim
+export EDITOR="$VISUAL"
 export PERL_MM_USE_DEFAULT=1
 
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
 tarz () { tar -I pigz -cf $1.tgz $1; }
-commit () { git commit -am "${1}" && git push; }
-fixes () { git commit -am "fixes #${1}" && git push; }
+commit () { git commit -am "${1}"; git push; }
+fixes () { git commit -am "fixes #${1}"; git push; }
 
 git_clone_all () {
   cd ~/git
@@ -34,6 +35,16 @@ git_status_rel () {
   pushd ~/git
   parallel -a releases 'echo " # {}" && cd ~/git/{} && git status'
   popd
+}
+
+vibash () {
+  vim ~/.bashrc
+  . ~/.bashrc
+}
+
+vibashl () {
+  vim ~/.bashrc.local
+  . ~/.bashrc
 }
 
 eval "$(gh completion -s bash)"
