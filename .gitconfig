@@ -1,6 +1,5 @@
 [user]
-        email = j@fast.ai
-        name = Jeremy Howard
+        name = Fabian Distler
 
 [push]
         default = simple
