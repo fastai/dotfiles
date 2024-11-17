@@ -2,8 +2,8 @@ unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 packadd! matchit
 
-set background=dark
-color slate
+set background=light
+"color slate
 let &t_ti.="\e[1 q"
 let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
@@ -15,7 +15,7 @@ set ttyfast
 set mouse=a
 set t_Co=256
 
-set foldcolumn=3
+"set foldcolumn=3
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -56,7 +56,7 @@ set pastetoggle=<F10>
 set tabstop=8 softtabstop=0 expandtab shiftwidth=2 smarttab autoindent fileformat=unix
 set fo-=t
 au BufNewFile,BufRead *.py set shiftwidth=4 textwidth=119
-setlocal foldmethod=expr
+"setlocal foldmethod=expr
 set list
 set listchars=tab:>-
 set display+=lastline
