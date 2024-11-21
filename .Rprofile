@@ -1,7 +1,3 @@
-if (interactive()) {
-  suppressMessages(require(devtools))
-}
-
 # Handle packages not installed.
 if (interactive() && getRversion() >= "4.0.0") {
   globalCallingHandlers(
