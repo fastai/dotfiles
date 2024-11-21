@@ -1,6 +1,0 @@
---ignore-file=is:tags
---ignore-dir=tmp
---ignore-dir=_site
---ignore-dir=build
---ignore-dir=.ipynb_checkpoints
---ignore-dir=.build
