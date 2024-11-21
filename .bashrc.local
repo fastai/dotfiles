@@ -12,16 +12,13 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 export PERL_MM_USE_DEFAULT=1
 
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
-
 tarz () { tar -I pigz -cf $1.tgz $1; }
 commit () { git commit -am "${1}"; git push; }
 fixes () { git commit -am "fixes #${1}"; git push; }
 
 git_clone_all () {
   cd ~/git
-  parallel -a repos 'git clone git@github.com:fabiandistler/{}.git'
+  parallel -a repos 'git clone https://github.com/fabiandistler/{}.git'
   cd -
 }
 
