@@ -1,48 +1,72 @@
+# Disable XON/XOFF flow control for terminal input
 stty -ixon
+
+# Enable globstar for recursive directory matching in globbing (e.g., **/*)
 shopt -s globstar
 
-parse_git_branch() { b=$(git branch --show-current 2> /dev/null); echo ${b:+" ($b)"}; }
+# Function to parse the current Git branch and display it in the prompt if in a Git repo
+parse_git_branch() { 
+    b=$(git branch --show-current 2> /dev/null); 
+    echo ${b:+" ($b)"}; 
+}
+
+# Custom Bash prompt (PS1) configuration
+# - Displays username@hostname in green
+# - Displays current working directory in blue
+# - Displays current Git branch if inside a Git repo
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\[\033[00m\]\$ '
 
+# Source external Bash alias files if they exist
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
 [ -f ~/.bash_secrets ] && . ~/.bash_secrets
 
+# Alias for using a custom Git directory and working tree (for dotfiles or other repos)
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
+# Set default editor to Vim
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+# Set Perl to automatically use default options for module installations
 export PERL_MM_USE_DEFAULT=1
 
-tarz () { tar -I pigz -cf $1.tgz $1; }
-commit () { git commit -am "${1}"; git push; }
-fixes () { git commit -am "fixes #${1}"; git push; }
+# Create a tarball with compression using pigz
+tarz () { 
+    tar -I pigz -cf $1.tgz $1; 
+}
 
+# Function to commit changes to Git and push immediately
+commit () { 
+    git commit -am "${1}"; 
+    git push; 
+}
+
+# Function to commit a fix to a specific Git issue number and push
+fixes () { 
+    git commit -am "fixes #${1}"; 
+    git push; 
+}
+
+# Function to clone all repositories listed in a file (repos) using GNU Parallel
 git_clone_all () {
-  cd ~/git
-  parallel -a repos 'git clone https://github.com/fabiandistler/{}.git'
-  cd -
+    cd ~/git
+    parallel -a repos 'git clone https://github.com/fabiandistler/{}.git'
+    cd -
 }
 
+# Function to pull the latest changes from all repositories listed in a file (repos)
 git_pull_all () {
-  pushd ~/git
-  parallel -a repos 'echo " # {}" && cd ~/git/{} && git pull'
-  popd
+    pushd ~/git
+    parallel -a repos 'echo " # {}" && cd ~/git/{} && git pull'
+    popd
 }
 
+# Function to show the Git status of all repositories listed in a file (releases)
 git_status_rel () {
-  pushd ~/git
-  parallel -a releases 'echo " # {}" && cd ~/git/{} && git status'
-  popd
+    pushd ~/git
+    parallel -a releases 'echo " # {}" && cd ~/git/{} && git status'
+    popd
 }
 
-vibash () {
-  vim ~/.bashrc
-  . ~/.bashrc
-}
-
-vibashl () {
-  vim ~/.bashrc.local
-  . ~/.bashrc
-}
-
+# Enable GitHub CLI autocompletion for Bash
 eval "$(gh completion -s bash)"
-
