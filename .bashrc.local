@@ -5,7 +5,7 @@ parse_git_branch() { b=$(git branch --show-current 2> /dev/null); echo ${b:+" ($
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(parse_git_branch)\[\033[00m\]\$ '
 
 [ -f ~/.bash_aliases ] && . ~/.bash_aliases
-[ -f ~/.bash_secrets ] && . ~/.bash_secrets
+[ -f ~/.secrets ] && . ~/.secrets
 
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 export VISUAL=vim
@@ -48,4 +48,3 @@ vibashl () {
 }
 
 eval "$(gh completion -s bash)"
-
