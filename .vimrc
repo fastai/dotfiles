@@ -157,3 +157,6 @@ let g:llama_config = {
     \ 'keymap_accept_line': "<S-Tab>",
     \ 'keymap_accept_word': "<C-B>",
     \ }
+
+set cursorline
+highlight CursorLine ctermbg=255 guibg=#f0f0f0
