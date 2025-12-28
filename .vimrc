@@ -57,7 +57,7 @@ colorscheme delek
 
 set mouse=a
 
-map <leader>ve :sp $MYVIMRC<CR>
+map <leader>ve :tabedit $MYVIMRC<CR>
 map <leader>vs :source $MYVIMRC<CR>
 map <leader>w :w<CR>
 
