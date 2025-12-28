@@ -7,6 +7,11 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
+set autochdir
+set undofile
+silent !mkdir -p ~/.vim/undo
+set undodir=~/.vim/undo
+
 set tags+=~/.vim/my_tags
 let $PATH = '/opt/homebrew/bin:' .. $HOME .. '/.cargo/bin:' .. $HOME .. '/aai-ws/.venv/bin:' .. $HOME .. '/.local/bin:' .. $HOME .. '/go/bin:' .. $PATH
 
